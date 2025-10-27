@@ -9,14 +9,16 @@ import {
 } from "react-router-dom";
 import ReactGA from "react-ga4";
 
-import { AdminDashboard } from "./components/AdminDashboard";
-import { AnalyticsDashboard } from "./components/AnalyticsDashboard";
-import { CompactReviewCardView } from "./components/CompactReviewCardView";
-import { LoginPage } from "./components/LoginPage";
-import { ProtectedRoute } from "./components/ProtectedRoute";
+import { AdminDashboard } from "./components/Admin/AdminDashboard";
+import { AnalyticsDashboard } from "./components/Admin/AnalyticsDashboard";
+import { CompactReviewCardView } from "./components/ReviewCard/CompactReviewCardView";
+import { LoginPage } from "./components/Admin/LoginPage";
+import { ProtectedRoute } from "./components/Admin/ProtectedRoute";
+import { UserAdminLogin, UserAdminDashboard } from "./components/UserAdmin";
 import { storage } from "./utils/storage";
 import { ReviewCard } from "./types";
 import { preWarmModels } from "./utils/categoryAIServices/shared";
+import { ShieldX } from "lucide-react";
 
 ReactGA.initialize("G-J7T5QPZPQ9"); // your measurement ID
 
@@ -69,6 +71,10 @@ function App() {
           </ProtectedRoute>
         }
       />
+
+      {/* User Admin Routes - Must be before dynamic card route */}
+      <Route path="/:slug/admin" element={<UserAdminLogin />} />
+      <Route path="/:slug/admin/dashboard" element={<UserAdminDashboard />} />
 
       {/* Dynamic card at root level */}
       <Route path="/:slug" element={<DynamicReviewCard />} />
@@ -126,15 +132,15 @@ const DynamicReviewCard: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-200 via-purple-200 to-slate-200">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-yellow-50 to-green-50 p-4">
         <div className="text-center">
-          <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
-            <div className="w-8 h-8 border-2 border-blue-400 border-t-transparent rounded-full animate-spin" />
+          <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-green-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+            <div className="w-8 h-8 border-2 border-white border-t-transparent rounded-full animate-spin" />
           </div>
-          <h1 className="text-2xl font-bold text-blue-900 mb-2">
+          <h1 className="text-2xl font-bold text-slate-800 mb-2">
             Loading Review Card
           </h1>
-          <p className="text-slate-900">Please wait...</p>
+          <p className="text-slate-600">Please wait...</p>
         </div>
       </div>
     );
@@ -142,33 +148,37 @@ const DynamicReviewCard: React.FC = () => {
 
   if (!card) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
-        <div className="text-center">
-          <div className="w-24 h-24 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
-            <span className="text-4xl">❌</span>
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-yellow-50 to-green-50 flex items-center justify-center p-4">
+        <div className="text-center max-w-2xl mx-auto">
+          <div className="w-24 h-24 bg-gradient-to-b from-rose-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl">
+            <ShieldX className="w-12 h-12 text-white" />
           </div>
-          <img
-            src="/aireviewsystm_qrcode.png"
-            alt="AI Review System QR Code"
-            className="mx-auto mb-6 w-40 max-w-full border-4 border-blue-500 rounded-lg shadow-lg bg-white"
-          />
-          <h1 className="text-xl font-bold text-white mb-4">
-            If Card Not Found
-          </h1>
-          <h1 className="text-3xl font-bold text-white mb-4">
-            Please! Contact Admin&nbsp;
+          <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-xl mb-6">
+            <img
+              src="/aireviewsystm_qrcode.png"
+              alt="AI Review System QR Code"
+              className="mx-auto mb-6 w-40 max-w-full border-4 border-blue-500 rounded-xl shadow-lg bg-white"
+            />
+          </div>
+          <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-xl">
+            <h1 className="text-xl font-bold text-slate-800 mb-4">
+              Card Not Found
+            </h1>
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-4">
+              Please Contact Admin
+            </h2>
             <a
               href="https://www.aireviewsystem.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline text-blue-400 hover:text-blue-600"
+              className="inline-block px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl hover:from-blue-600 hover:to-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 mb-6"
             >
-              https://www.aireviewsystem.com/
+              Visit AIReviewSystem.com
             </a>
-          </h1>
-          <p className="text-slate-400 mb-8">
-            The review card for "/{slug}" doesn't exist or has been removed.
-          </p>
+            <p className="text-slate-600 text-sm sm:text-base">
+              The review card for "/{slug}" doesn't exist or has been removed.
+            </p>
+          </div>
         </div>
       </div>
     );
@@ -176,32 +186,36 @@ const DynamicReviewCard: React.FC = () => {
 
   if (card.active === false) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
-        <div className="text-center max-w-lg p-8 bg-slate-800/40 backdrop-blur rounded-2xl border border-white/10">
-          <div className="w-24 h-24 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-yellow-50 to-green-50 flex items-center justify-center p-4">
+        <div className="text-center max-w-lg mx-auto">
+          <div className="w-24 h-24 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl">
             <span className="text-4xl">⚠️</span>
           </div>
-          <h1 className="text-3xl font-bold text-white mb-4">
-            Temporarily Unavailable
-          </h1>
-          <p className="text-slate-300 mb-4">
-            The review card for "/{slug}" is currently inactive.
-          </p>
-          <p className="text-slate-400 text-sm">
-            Please check back later or contact the business owner if you believe
-            this is an error.
-          </p>
-          <h1 className="text-sm text-white mb-4">
-            Please! Contact Admin&nbsp;
-            <a
-              href="https://www.aireviewsystem.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline text-blue-400 hover:text-blue-600"
-            >
-              https://www.aireviewsystem.com/
-            </a>
-          </h1>
+          <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-xl">
+            <h1 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-4">
+              Temporarily Unavailable
+            </h1>
+            <p className="text-slate-700 mb-4">
+              The review card for "/{slug}" is currently inactive.
+            </p>
+            <p className="text-slate-600 text-sm mb-6">
+              Please check back later or contact the business owner if you
+              believe this is an error.
+            </p>
+            <div className="border-t border-slate-200 pt-6">
+              <p className="text-sm text-slate-700 mb-4">
+                Need assistance? Contact Admin:
+              </p>
+              <a
+                href="https://www.aireviewsystem.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl hover:from-blue-600 hover:to-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
+              >
+                Visit AIReviewSystem.com
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -212,13 +226,25 @@ const DynamicReviewCard: React.FC = () => {
 
 // Simple fallback for any unmatched path
 const NotFoundFallback = () => (
-  <div className="min-h-screen flex items-center justify-center bg-slate-900 text-white">
-    <div className="text-center space-y-4">
-      <h1 className="text-4xl font-bold">404</h1>
-      <p className="text-slate-300">Page not found</p>
-      <a href="/" className="text-blue-400 underline">
-        Go Home
-      </a>
+  <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-yellow-50 to-green-50 p-4">
+    <div className="text-center max-w-md mx-auto">
+      <div className="w-24 h-24 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl">
+        <span className="text-4xl font-bold text-white">404</span>
+      </div>
+      <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-xl">
+        <h1 className="text-3xl font-bold text-slate-800 mb-4">
+          Page Not Found
+        </h1>
+        <p className="text-slate-600 mb-6">
+          The page you're looking for doesn't exist.
+        </p>
+        <a
+          href="/"
+          className="inline-block px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl hover:from-blue-600 hover:to-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
+        >
+          Go Home
+        </a>
+      </div>
     </div>
   </div>
 );

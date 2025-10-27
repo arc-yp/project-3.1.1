@@ -1,31 +1,62 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-  <!-- Favicon & App Icons -->
-  <!-- Previous icon path '/ars.png' did not exist; updated to actual logo asset -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/aireviewlogo.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="/aireviewlogo.png" />
-  <link rel="apple-touch-icon" href="/aireviewlogo.png" />
-  <link rel="shortcut icon" href="/aireviewlogo.png" />
+    <!-- Favicon & App Icons -->
+    <!-- Previous icon path '/ars.png' did not exist; updated to actual logo asset -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/aireviewlogo.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/aireviewlogo.png"
+    />
+    <link rel="apple-touch-icon" href="/aireviewlogo.png" />
+    <link rel="shortcut icon" href="/aireviewlogo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Review Automation System</title>
-    <meta name="description" content="Streamline your Google Maps reviews with automated review generation. One-click copy and submit functionality." />
-    <meta name="keywords" content="review automation, Google Maps reviews, business reviews, review generation, AI review system" />
+    <meta
+      name="description"
+      content="Streamline your Google Maps reviews with automated review generation. One-click copy and submit functionality."
+    />
+    <meta
+      name="keywords"
+      content="review automation, Google Maps reviews, business reviews, review generation, AI review system"
+    />
     <meta name="robots" content="index,follow" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://aireviewsystem.com/" />
     <meta property="og:title" content="Review Automation System" />
-    <meta property="og:description" content="Automate Google Maps review generation & submission. Save time, boost credibility." />
-    <meta property="og:image" content="https://aireviewsystem.com/aireviewlogo.png" />
+    <meta
+      property="og:description"
+      content="Automate Google Maps review generation & submission. Save time, boost credibility."
+    />
+    <meta
+      property="og:image"
+      content="https://aireviewsystem.com/aireviewlogo.png"
+    />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Review Automation System" />
-    <meta name="twitter:description" content="Automate Google Maps review generation & submission. Save time, boost credibility." />
-    <meta name="twitter:image" content="https://aireviewsystem.com/aireviewlogo.png" />
+    <meta
+      name="twitter:description"
+      content="Automate Google Maps review generation & submission. Save time, boost credibility."
+    />
+    <meta
+      name="twitter:image"
+      content="https://aireviewsystem.com/aireviewlogo.png"
+    />
+
+    <!-- Fonts: Poppins for clean, modern look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Structured Data for Organization & Website (helps Google show correct logo) -->
     <script type="application/ld+json">
@@ -51,32 +82,58 @@
       }
     </script>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J7T5QPZPQ9"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-J7T5QPZPQ9"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-J7T5QPZPQ9');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-J7T5QPZPQ9");
     </script>
     <!-- Meta Pixel Code -->
     <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '779189021575074');
-      fbq('track', 'PageView');
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
+      fbq("init", "779189021575074");
+      fbq("track", "PageView");
     </script>
     <!-- End Meta Pixel Code -->
   </head>
   <body>
     <!-- Meta Pixel (noscript fallback) -->
     <noscript>
-      <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=779189021575074&ev=PageView&noscript=1" alt="" />
+      <img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=779189021575074&ev=PageView&noscript=1"
+        alt=""
+      />
     </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>

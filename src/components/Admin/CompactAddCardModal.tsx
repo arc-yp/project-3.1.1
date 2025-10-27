@@ -10,15 +10,15 @@ import {
   Key,
   Bot,
 } from "lucide-react";
-import { ReviewCard } from "../types";
+import { ReviewCard } from "../../types";
 import {
   generateId,
   generateSlug,
   validateGoogleMapsUrl,
-} from "../utils/helpers";
-import { aiService } from "../utils/aiService";
-import { StarRating } from "./StarRating";
-import { SegmentedButtonGroup } from "./SegmentedButtonGroup";
+} from "../../utils/helpers";
+import { aiService } from "../../utils/aiService";
+import { StarRating } from "../ReviewCard/StarRating";
+import { SegmentedButtonGroup } from "../ReviewCard/SegmentedButtonGroup";
 import { TagInput } from "./TagInput";
 import { Link as LinkIcon } from "lucide-react";
 
@@ -412,14 +412,14 @@ export const CompactAddCardModal: React.FC<CompactAddCardModalProps> = ({
               </div>
 
               {/* Business Description */}
-                <div>
+              <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Business Description
                 </label>
                 <textarea
                   value={formData.description}
                   onChange={(e) =>
-                  handleInputChange("description", e.target.value)
+                    handleInputChange("description", e.target.value)
                   }
                   placeholder="Brief description of your business, services, or specialties..."
                   rows={4}
@@ -428,7 +428,7 @@ export const CompactAddCardModal: React.FC<CompactAddCardModalProps> = ({
                 <p className="text-xs text-gray-500 mt-1">
                   This helps generate more relevant reviews
                 </p>
-                </div>
+              </div>
 
               {/* Location */}
               <div>

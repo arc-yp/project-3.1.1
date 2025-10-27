@@ -2,80 +2,176 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Typography base rules (plain CSS to avoid tooling warnings) */
+html {
+  font-family: "Poppins", ui-sans-serif, system-ui, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+}
+body {
+  color: #334155; /* slate-700 */
+  background-color: #ffffff;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #0f172a; /* slate-900/800 */
+}
+small {
+  color: #64748b; /* slate-500 */
+}
+
 /* Enhanced 3D Animations */
 @keyframes spin-continuous {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes spin-reverse {
-  from { transform: rotate(360deg); }
-  to { transform: rotate(0deg); }
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
 }
 
 @keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(180deg); }
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
 }
 
 @keyframes float-reverse {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(20px) rotate(-180deg); }
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(20px) rotate(-180deg);
+  }
 }
 
 @keyframes float-slow {
-  0%, 100% { transform: translateY(0px) scale(1); }
-  50% { transform: translateY(-10px) scale(1.05); }
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.05);
+  }
 }
 
 @keyframes float-gentle {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-5px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
 }
 
 @keyframes float-gentle-reverse {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(5px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
 }
 
 @keyframes bounce-slow {
-  0%, 100% { transform: translateY(0px) scale(1); }
-  50% { transform: translateY(-15px) scale(1.1); }
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-15px) scale(1.1);
+  }
 }
 
 @keyframes bounce-gentle {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-3px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
 }
 
 @keyframes pulse-gentle {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
 }
 
 @keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 @keyframes fade-in {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes success-pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
 }
 
 /* Animation Classes */
@@ -146,9 +242,15 @@
 }
 
 @keyframes service-select {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1.05); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
 }
 
 /* Staggered animation for service buttons */
@@ -157,13 +259,13 @@
 }
 
 @keyframes stagger-in {
-  0% { 
-    opacity: 0; 
-    transform: translateY(10px) scale(0.9); 
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.9);
   }
-  100% { 
-    opacity: 1; 
-    transform: translateY(0) scale(1); 
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -191,65 +293,46 @@
 
 /* Enhanced Shadow Effects */
 .shadow-3d {
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.15),
-    0 10px 20px rgba(0, 0, 0, 0.1),
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 10px 20px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .shadow-3d-enhanced {
-  box-shadow: 
-    0 35px 60px -12px rgba(0, 0, 0, 0.25),
-    0 20px 40px -8px rgba(0, 0, 0, 0.15),
-    0 10px 20px -4px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25),
+    0 20px 40px -8px rgba(0, 0, 0, 0.15), 0 10px 20px -4px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
 .shadow-3d-mega {
-  box-shadow: 
-    0 50px 100px -20px rgba(0, 0, 0, 0.3),
-    0 30px 60px -12px rgba(0, 0, 0, 0.2),
-    0 15px 30px -6px rgba(0, 0, 0, 0.15),
-    inset 0 2px 0 rgba(255, 255, 255, 0.4),
-    inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.3),
+    0 30px 60px -12px rgba(0, 0, 0, 0.2), 0 15px 30px -6px rgba(0, 0, 0, 0.15),
+    inset 0 2px 0 rgba(255, 255, 255, 0.4), inset 0 -2px 0 rgba(0, 0, 0, 0.1);
 }
 
 .shadow-3d-button {
-  box-shadow: 
-    0 15px 30px rgba(59, 130, 246, 0.4),
-    0 8px 16px rgba(59, 130, 246, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+  box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4),
+    0 8px 16px rgba(59, 130, 246, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3),
     inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
 .shadow-3d-button-light {
-  box-shadow: 
-    0 15px 30px rgba(0, 0, 0, 0.15),
-    0 8px 16px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15), 0 8px 16px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .shadow-3d-card {
-  box-shadow: 
-    0 10px 20px rgba(0, 0, 0, 0.1),
-    0 5px 10px rgba(0, 0, 0, 0.05),
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05),
     inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .shadow-3d-small {
-  box-shadow: 
-    0 8px 16px rgba(0, 0, 0, 0.15),
-    0 4px 8px rgba(0, 0, 0, 0.1),
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
 .shadow-inner-3d {
-  box-shadow: 
-    inset 0 2px 4px rgba(0, 0, 0, 0.1),
-    inset 0 1px 2px rgba(0, 0, 0, 0.05),
-    0 1px 0 rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1),
+    inset 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 /* 3D Transform Utilities */
@@ -286,16 +369,17 @@
 }
 
 /* Hide scrollbar (still scrollable) */
-html, body {
-  overflow-x: hidden;            /* Avoid horizontal scrollbar */
-  -ms-overflow-style: none;      /* IE & old Edge */
-  scrollbar-width: none;         /* Firefox */
+html,
+body {
+  overflow-x: hidden; /* Avoid horizontal scrollbar */
+  -ms-overflow-style: none; /* IE & old Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 body::-webkit-scrollbar {
   width: 0;
   height: 0;
-  display: none;                 /* Chrome / Safari */
+  display: none; /* Chrome / Safari */
 }
 
 /* Optional utility if you want selective usage */
@@ -320,22 +404,21 @@ button:hover {
 /* Responsive Optimizations */
 @media (max-width: 640px) {
   .shadow-3d-enhanced {
-    box-shadow: 
-      0 20px 40px -8px rgba(0, 0, 0, 0.2),
+    box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.2),
       0 10px 20px -4px rgba(0, 0, 0, 0.1),
       inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
-  
+
   .shadow-3d-mega {
-    box-shadow: 
-      0 30px 60px -12px rgba(0, 0, 0, 0.25),
+    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.25),
       0 15px 30px -6px rgba(0, 0, 0, 0.15),
       inset 0 1px 0 rgba(255, 255, 255, 0.3);
   }
 }
 
 /* Ensure no scrolling */
-body, html {
+body,
+html {
   overflow-x: hidden;
 }
 
